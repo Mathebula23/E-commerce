@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Camping Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --bg-main: #7c8a8f;
+  --bg-dark: #000;
+  --bg-card: #f2f2f2;
+  --text-light: #fff;
+  --text-dark: #222;
+  --radius: 18px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: var(--bg-main);
+  color: var(--text-light);
+}
+
+/* ================= NAV ================= */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav li {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+/* ================= HERO ================= */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  padding: 60px 40px;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 36px;
+  line-height: 1.3;
+}
+
+.hero-image {
+  height: 420px;
+  border-radius: var(--radius);
+  background-image: url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429');
+  background-size: cover;
+  background-position: center;
+}
+
+/* ================= PRODUCTS ================= */
+.products {
+  background: var(--bg-dark);
+  padding: 60px 40px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.product {
+  background: #fff;
+  color: var(--text-dark);
+  border-radius: 14px;
+  padding: 12px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-size: cover;
+  background-position: center;
+}
+
+.product.big {
+  grid-row: span 2;
+  height: 380px;
+}
+
+.product span {
+  font-size: 13px;
+  background: rgba(255,255,255,0.85);
+  padding: 4px 6px;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+/* Product Images */
+.product.bags { background-image:url('https://images.unsplash.com/photo-1500534623283-312aade485b7'); }
+.product.tent { background-image:url('https://images.unsplash.com/photo-1504280390368-3971b0c94c14'); }
+.product.food { background-image:url('https://images.unsplash.com/photo-1504754524776-8f4f37790ca0'); }
+.product.lamps { background-image:url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb'); }
+.product.plates { background-image:url('https://images.unsplash.com/photo-1506084868230-bb9d95c24759'); }
+.product.tools { background-image:url('https://images.unsplash.com/photo-1519681393784-d120267933ba'); }
+.product.chairs { background-image:url('https://images.unsplash.com/photo-1508873696983-2dfd5898f08b'); }
+.product.boat { background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e'); }
+
+.view-all {
+  margin-top: 20px;
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+/* ================= REVIEWS ================= */
+.reviews {
+  padding: 60px 40px;
+}
+
+.review-box {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.avatars {
+  display: flex;
+  margin-top: 10px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  border: 3px solid var(--bg-main);
+  margin-left: -15px;
+}
+
+.avatar.one { background-image:url('https://randomuser.me/api/portraits/men/32.jpg'); }
+.avatar.two { background-image:url('https://randomuser.me/api/portraits/women/44.jpg'); }
+.avatar.three { background-image:url('https://randomuser.me/api/portraits/men/65.jpg'); }
+
+.review-card {
+  background: #eaeaea;
+  color: #333;
+  border-radius: var(--radius);
+  padding: 30px;
+}
+
+.review-card h4 {
+  margin-bottom: 10px;
+}
+
+/* ================= PAYMENTS ================= */
+.payments {
+  text-align: center;
+  padding: 40px;
+}
+
+.payments span {
+  margin: 0 10px;
+  opacity: 0.7;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  text-align: center;
+  padding: 30px;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-image {
+    margin: auto;
+    max-width: 420px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .review-box {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .avatars {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .products {
+    padding: 40px 20px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product.big {
+    grid-row: span 1;
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 40px 20px;
+  }
+
+  .hero h1 {
+    font-size: 22px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .review-card {
+    padding: 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <strong>Logo</strong>
+  <ul>
+    <li>Home</li>
+    <li>Coupons</li>
+    <li>FAQ</li>
+    <li>Contact</li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>
+    ALL YOU NEED TO GO CAMPING UNDER ONE ROOF AT THE BEST PRICE, WITH MASSIVE SALES
+  </h1>
+  <div class="hero-image"></div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products">
+  <div class="product-grid">
+    <div class="product bags"><span>Bags</span><span>From R250</span></div>
+    <div class="product tent big"><span>Tent</span><span>From R500</span></div>
+    <div class="product food"><span>Food</span><span>From R50</span></div>
+    <div class="product lamps"><span>Lamps</span><span>From R150</span></div>
+    <div class="product plates"><span>Plates</span><span>From R100</span></div>
+    <div class="product tools"><span>Tools</span><span>From R100</span></div>
+    <div class="product chairs"><span>Chairs</span><span>From R300</span></div>
+    <div class="product boat"><span>Boat</span><span>From R750</span></div>
+  </div>
+
+  <div class="view-all">👁 View all offers</div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="review-box">
+    <div>
+      ⭐ 4.8 Reviews
+      <div class="avatars">
+        <div class="avatar one"></div>
+        <div class="avatar two"></div>
+        <div class="avatar three"></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <h4>John Stall</h4>
+      <p>
+        Good place to get all the camping material under one roof.
+        They offer fast delivery and good quality items at the best price.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENTS -->
+<section class="payments">
+  <p>MANY WAYS TO PAY</p>
+  <span>Mastercard</span>
+  <span>Payflex</span>
+  <span>Ozow</span>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  HELP · PAGES · POLICIES  
+  <br><br>
+  All rights reserved
+</footer>
+
+</body>
+</html>
